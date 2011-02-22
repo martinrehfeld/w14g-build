@@ -5,13 +5,18 @@ App.Controllers.Tweets = Backbone.Controller.extend({
 
   index: function () {
     var tweets = new App.Collections.Tweets();
-    tweets.fetch({
-      success: function () {
-        new App.Views.Index({ collection: tweets });
-      },
-      error: function () {
-        new Error({ message: "Error loading tweets." });
-      }
-    });
+    var index = 1;
+    var fetchNext = function (silent) {
+      $.getJSON('/tweets/' + index, function (data) {
+        tweets.add(data, {silent: silent});
+        if (index < 16) { // max 16 !
+          index += 1;
+          setTimeout(fetchNext, 0, silent);
+        }
+      });
+    };
+    setTimeout(fetchNext, 0, false);
+
+    new App.Views.Index({ collection: tweets });
   }
 });

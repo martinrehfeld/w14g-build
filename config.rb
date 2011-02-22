@@ -33,7 +33,8 @@ end
 require 'open-uri'
 require 'rubygems'
 require 'json'
-get '/tweets' do
-  data = JSON.parse(URI.parse('http://localhost:5984/tweets/_design/tweets/_view/per_day?limit=200&include_docs=true&reduce=false').read)
+get '/tweets/:index' do |index|
+  limit = 200
+  data = JSON.parse(URI.parse("http://localhost:5984/tweets/_design/tweets/_view/per_day?descending=false&limit=#{limit}&skip=#{(index.to_i - 1) * limit}&include_docs=true&reduce=false").read)
   JSON.generate(data['rows'].map { |row| row['doc'] })
 end
