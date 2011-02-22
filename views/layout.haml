@@ -6,17 +6,7 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
     = stylesheet_link_tag 'site.css'
-
-    = javascript_include_tag 'jquery.js'
-    = javascript_include_tag 'json2.js'
-    = javascript_include_tag 'underscore.js'
-    = javascript_include_tag 'backbone.js'
-    = javascript_include_tag 'app.js'
-    = javascript_include_tag 'app/models/tweet.js'
-    = javascript_include_tag 'app/collections/tweets.js'
-    = javascript_include_tag 'app/controllers/tweets.js'
-    = javascript_include_tag 'app/views/index.js'
-    = javascript_include_tag 'site.js'
+    = javascripts :app
 
     = yield_content :head
 
