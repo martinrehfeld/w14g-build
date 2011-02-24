@@ -1,37 +1,23 @@
 App.Models.Report = Backbone.Model.extend({
   initialize: function () {
+    var tweets = new App.Collections.Tweets;
     _.bindAll(this, 'updateWordCloud');
     this.set({
-      tweets: new App.Collections.Tweets,
+      tweets: tweets,
       wordCloud: new App.Models.Cloud
     });
-    this.get('tweets').bind('add', this.updateWordCloud);
+    tweets.bind('add', this.updateWordCloud);
+    tweets.fetchTweets(this);
   },
 
-  loadTweets: function () {
-    var report = this;
-    var tweets = this.get('tweets');
-    var index = 1;
-    var fetchNext = function () {
-      $.getJSON('/tweets/' + index, function (data) {
-        tweets.add(data);
-        report.trigger('change');
-        if (index < 16) { // max 16 !
-          index += 1;
-          setTimeout(fetchNext, 0);
-        }
-      });
-    };
-    setTimeout(fetchNext, 0);
-  },
-
-  updateWordCloud: function (tweet) {
+  updateWordCloud: function (newTweet) {
     var wordCloud = this.get('wordCloud');
-    wordCloud.addWords.apply(wordCloud, tweet.analysedWords());
+    wordCloud.addWords.apply(wordCloud, newTweet.analysedWords());
   },
 
   filterByWord: function (word) {
     // TODO: implementation
     alert('The tweet list shall only show tweets with "' + word + '" in it.');
+    this.trigger('change');
   }
 });

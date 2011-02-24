@@ -9,13 +9,10 @@ App.Controllers.Report = Backbone.Controller.extend({
   },
 
   index: function () {
-    var report = this.resource;
-    report.loadTweets();
-    new App.Views.Index({ model: report });
+    new App.Views.Index({ model: this.resource });
   },
 
   filterByWord: function (word) {
-    var report = this.resource;
-    report.filterByWord(word);
+    this.resource.filterByWord(word);
   }
 });
