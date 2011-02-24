@@ -7,6 +7,7 @@ javascripts:
     - public/javascripts/json2.js
     - public/javascripts/underscore.js
     - public/javascripts/backbone.js
+    - public/javascripts/jquery.tagcloud.js
     - app/templates/*.jst
     - public/javascripts/app/app.js
     - public/javascripts/app/models/*.js
