@@ -1,5 +1,5 @@
 App.Collections.Tweets = Backbone.Collection.extend({
-  model: Tweet,
+  model: App.Models.Tweet,
   url: '/tweets' // not used for collection fetch!
 });
 
