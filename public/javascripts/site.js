@@ -14,7 +14,9 @@
 
     // init App when DOM ready
     $(function() {
-      new App.Controllers.Report();
+      new App.Controllers.Report({
+        resource: new App.Models.Report()
+      });
       Backbone.history.start();
     });
   }

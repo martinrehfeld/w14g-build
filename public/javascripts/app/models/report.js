@@ -8,19 +8,30 @@ App.Models.Report = Backbone.Model.extend({
     this.get('tweets').bind('add', this.updateWordCloud);
   },
 
+  loadTweets: function () {
+    var report = this;
+    var tweets = this.get('tweets');
+    var index = 1;
+    var fetchNext = function () {
+      $.getJSON('/tweets/' + index, function (data) {
+        tweets.add(data);
+        report.trigger('change');
+        if (index < 16) { // max 16 !
+          index += 1;
+          setTimeout(fetchNext, 0);
+        }
+      });
+    };
+    setTimeout(fetchNext, 0);
+  },
+
   updateWordCloud: function (tweet) {
     var wordCloud = this.get('wordCloud');
-    var frequencyMap = wordCloud.get('frequencyMap');
-    var text = tweet.get('text').replace(/[!"()+*?&.,;:]/g, ' ');
-    _.each(text.split(' '), function (word) {
-      if (!(/^\s*$/.test(word))) {
-        word = word.toLocaleLowerCase();
-        if (frequencyMap[word]) {
-          frequencyMap[word] += 1;
-        } else {
-          frequencyMap[word] = 1;
-        }
-      }
-    });
+    wordCloud.addWords.apply(wordCloud, tweet.analysedWords());
+  },
+
+  filterByWord: function (word) {
+    // TODO: implementation
+    alert('The tweet list shall only show tweets with "' + word + '" in it.');
   }
 });

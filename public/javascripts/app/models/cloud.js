@@ -5,6 +5,20 @@ App.Models.Cloud = Backbone.Model.extend({
     });
   },
 
+  addWords: function () {
+    var frequencyMap = this.get('frequencyMap');
+    _.each(arguments, function (word) {
+      if (word !== '') {
+        word = word.toLocaleLowerCase();
+        if (frequencyMap[word]) {
+          frequencyMap[word] += 1;
+        } else {
+          frequencyMap[word] = 1;
+        }
+      }
+    });
+  },
+
   topEntries: function (count) {
     var frequencyMap = this.get('frequencyMap');
     var lowestAcceptableFrequency = _.last(_.first(_.values(frequencyMap).sort().reverse(), count));
