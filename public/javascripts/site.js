@@ -14,7 +14,7 @@
 
     // init App when DOM ready
     $(function() {
-      new App.Controllers.Tweets();
+      new App.Controllers.Report();
       Backbone.history.start();
     });
   }
