@@ -3,13 +3,15 @@ App.Models.Cloud = Backbone.Model.extend({
     this.set({
       frequencyMap: {}
     });
+    _.bindAll(this, 'tweetAdded');
+    this.get('collection').bind('add', this.tweetAdded);
   },
 
-  addWords: function () {
+  tweetAdded: function (newTweet) {
     var frequencyMap = this.get('frequencyMap');
-    _.each(arguments, function (word) {
+
+    _.each(newTweet.analysedWords(), function (word) {
       if (word !== '') {
-        word = word.toLocaleLowerCase();
         if (frequencyMap[word]) {
           frequencyMap[word] += 1;
         } else {
