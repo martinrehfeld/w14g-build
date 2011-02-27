@@ -5,5 +5,7 @@ App.Views.Index = Backbone.View.extend({
 
     this.tweetsView = new App.Views.Tweets({ parent: this.model, collection: tweets });
     this.wordCloudView = new App.Views.WordCloud({ parent: this.model, model: wordCloud });
+    $('#app .tweets').append(this.tweetsView.el);
+    $('#app .word-cloud').append(this.wordCloudView.el);
   }
 });

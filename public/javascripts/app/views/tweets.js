@@ -3,7 +3,6 @@ App.Views.Tweets = Backbone.View.extend({
     _.bindAll(this, 'render');
     this.options.parent.bind('change', this.render);
     this.collection.bind('filterchange', this.render);
-    $('#app .tweets').append(this.el);
   },
 
   render: function () {
