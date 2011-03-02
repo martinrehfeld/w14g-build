@@ -13,7 +13,7 @@ App.Controllers.Report = Backbone.Controller.extend({
   index: function () {},
 
   filterByWord: function (word) {
-    this.resource.filterByWord(word);
+    this.resource.filterByWord(decodeURIComponent(word));
   },
 
   resetFilter: function () {
