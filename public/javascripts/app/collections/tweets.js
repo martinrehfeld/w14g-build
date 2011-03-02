@@ -27,7 +27,7 @@ App.Collections.Tweets = Backbone.Collection.extend({
 
   tweetAdded: function (newTweet) {
     var wordMap = this.wordMap;
-    _.each(newTweet.analysedWords(), function (word) {
+    _.each(_.uniq(newTweet.analysedWords()), function (word) {
       if (word !== '') {
         if (wordMap[word]) {
           wordMap[word].push(newTweet);
