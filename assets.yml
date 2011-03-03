@@ -11,8 +11,11 @@ javascripts:
     - public/javascripts/backbone.js
     - app/templates/*.jst
     - public/javascripts/app/app.js
-    - public/javascripts/app/models/*.js
-    - public/javascripts/app/collections/*.js
-    - public/javascripts/app/views/*.js
-    - public/javascripts/app/controllers/*.js
+    # for some strange reason the views cannot reside in a dir named "views"
+    # as middleman seems to assing special meaning to that name, so we are
+    # generally moving to singular for model, collection, view, controller
+    - public/javascripts/app/model/*.js
+    - public/javascripts/app/collection/*.js
+    - public/javascripts/app/view/*.js
+    - public/javascripts/app/controller/*.js
     - public/javascripts/init.js
