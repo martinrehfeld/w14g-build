@@ -43,7 +43,6 @@ App.Collections.Tweets = Backbone.Collection.extend({
   },
 
   resetFilter: function (silent) {
-    this.visibleModels = this.models;
     this.currentFilter = null;
     if (!silent) {
       this.trigger('filterchange');
@@ -61,7 +60,7 @@ App.Collections.Tweets = Backbone.Collection.extend({
   },
 
   visible: function () {
-    return this.visibleModels;
+    return this.isFiltered() ? this.visibleModels : this.models;
   }
 });
 
