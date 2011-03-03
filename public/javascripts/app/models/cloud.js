@@ -1,10 +1,13 @@
 App.Models.Cloud = Backbone.Model.extend({
+
   initialize: function() {
-    this.set({
-      frequencyMap: {}
-    });
+    this.clear({silent: true});
     _.bindAll(this, 'tweetAdded');
     this.get('collection').bind('add', this.tweetAdded);
+  },
+
+  clear: function (options) {
+    this.set({frequencyMap: {}}, options);
   },
 
   tweetAdded: function (newTweet) {

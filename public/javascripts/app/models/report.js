@@ -14,8 +14,11 @@ App.Models.Report = Backbone.Model.extend({
   newScreenName: function () {
     var screenName = this.get('screen_name');
     var tweets = this.get('tweets');
+    var wordCloud = this.get('wordCloud');
 
-    tweets.refresh([]);
+    tweets.clear();
+    wordCloud.clear();
+    this.trigger('change');
     tweets.fetch(this);
   },
 

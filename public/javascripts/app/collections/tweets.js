@@ -1,24 +1,34 @@
 App.Collections.Tweets = Backbone.Collection.extend({
+
   model: App.Models.Tweet,
-  url: '/tweets', // not used for collection fetch!
 
   initialize: function () {
-    this.wordMap = {};
-    this.resetFilter(true);
+    this.clear({silent: true});
     _.bindAll(this, 'tweetAdded');
     this.bind('add', this.tweetAdded);
   },
 
+  clear: function (options) {
+    this.wordMap = {};
+    this.resetFilter(options);
+    this.refresh([], options);
+  },
+
   fetch: function (report) {
     var collection = this;
-    var index = 1;
+    var page = 1;
+    var baseUrl = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' +
+                  encodeURIComponent(report.get('screen_name')) +
+                  '&include_rts=1&include_entities=1&trim_user=1&callback=?&count=200&page=';
     var fetchNext = function () {
-      $.getJSON('/tweets/' + index, function (data) {
-        collection.add(data);
-        report.trigger('change');
-        if (index < 16) { // max 16 !
-          index += 1;
-          setTimeout(fetchNext, 0);
+      $.getJSON(baseUrl + page, function (data) {
+        if (data.length > 0) {
+          collection.add(data);
+          report.trigger('change');
+          if (page < 16) { // count*page: max 3,200
+            page += 1;
+            setTimeout(fetchNext, 0);
+          }
         }
       });
     };
@@ -42,9 +52,10 @@ App.Collections.Tweets = Backbone.Collection.extend({
     return this.currentFilter !== null;
   },
 
-  resetFilter: function (silent) {
+  resetFilter: function (options) {
+    options = options || {};
     this.currentFilter = null;
-    if (!silent) {
+    if (!options.silent) {
       this.trigger('filterchange');
     }
   },
@@ -62,6 +73,7 @@ App.Collections.Tweets = Backbone.Collection.extend({
   visible: function () {
     return this.isFiltered() ? this.visibleModels : this.models;
   }
+
 });
 
 App.Collections.Tweets.prototype.comparator = function (tweet) {
