@@ -1,17 +1,18 @@
-package_assets: <%= ARGV[0] == 'build' ? 'on' : 'off' %>
+package_path: javascripts
+package_assets: <%= ENV['MM_ENV'] == 'build' ? 'always' : 'off' %>
 javascript_compressor: yui
 template_function: _.template
 javascripts:
-  app:
+  site:
     - public/javascripts/jquery.js
+    - public/javascripts/jquery.tagcloud.js
     - public/javascripts/json2.js
     - public/javascripts/underscore.js
     - public/javascripts/backbone.js
-    - public/javascripts/jquery.tagcloud.js
     - app/templates/*.jst
     - public/javascripts/app/app.js
     - public/javascripts/app/models/*.js
     - public/javascripts/app/collections/*.js
-    - public/javascripts/app/controllers/*.js
     - public/javascripts/app/views/*.js
-    - public/javascripts/site.js
+    - public/javascripts/app/controllers/*.js
+    - public/javascripts/init.js

@@ -3,6 +3,7 @@ Bundler.setup
 
 require "jammit"
 Jammit.load_configuration(File.join(File.dirname(__FILE__), 'assets.yml'))
+Jammit.packager.precache_all(File.join('.', 'build', 'javascripts'), '.') if ENV['MM_ENV'] == 'build'
 
 configure :build do
   activate :minify_css
@@ -25,6 +26,6 @@ end
 
 # deliver application templates via Jammit
 template_ext = Jammit.template_extension.to_sym
-get "/assets/app.#{template_ext}" do
-  Jammit.packager.pack_templates(:app)
+get "/javascripts/site.#{template_ext}" do
+  Jammit.packager.pack_templates(:site)
 end
