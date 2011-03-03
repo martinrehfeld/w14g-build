@@ -23,7 +23,7 @@ App.Models.Cloud = Backbone.Model.extend({
 
   topEntries: function (count) {
     var frequencyMap = this.get('frequencyMap');
-    var lowestAcceptableFrequency = _.last(_.first(_.values(frequencyMap).sort().reverse(), count));
+    var lowestAcceptableFrequency = _.last(_.first(_.sortBy(_.values(frequencyMap), function (frequency) { return -frequency; }), count));
     var result = {};
 
     _.each(frequencyMap, function(frequency, entry) {
