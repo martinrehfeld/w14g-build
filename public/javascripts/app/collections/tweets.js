@@ -9,7 +9,7 @@ App.Collections.Tweets = Backbone.Collection.extend({
     this.bind('add', this.tweetAdded);
   },
 
-  fetchTweets: function (report) {
+  fetch: function (report) {
     var collection = this;
     var index = 1;
     var fetchNext = function () {

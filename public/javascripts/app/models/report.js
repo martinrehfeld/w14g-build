@@ -7,7 +7,16 @@ App.Models.Report = Backbone.Model.extend({
         collection: tweets
       })
     });
-    tweets.fetchTweets(this);
+    _.bindAll(this, 'newScreenName');
+    this.bind('change:screen_name', this.newScreenName);
+  },
+
+  newScreenName: function () {
+    var screenName = this.get('screen_name');
+    var tweets = this.get('tweets');
+
+    tweets.refresh([]);
+    tweets.fetch(this);
   },
 
   filterByWord: function (word) {
