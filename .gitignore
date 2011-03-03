@@ -1,5 +1,6 @@
 .rvmrc
 **.swp
+**.swo
 .bundle
 .sass-cache
 build
