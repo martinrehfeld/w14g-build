@@ -1,4 +1,7 @@
 App.Views.WordCloud = Backbone.View.extend({
+
+  className: "word-cloud",
+
   initialize: function () {
     _.bindAll(this, 'render');
     this.options.parent.bind('change', this.render);
@@ -11,4 +14,5 @@ App.Views.WordCloud = Backbone.View.extend({
 
     return this;
   }
+
 });
