@@ -9,7 +9,7 @@
 
     $.fn.tagcloud.defaults = {
       size: {start: 13, end: 28, unit: "px"},
-      color: {start: '#cde', end: '#f52'}
+      color: {start: '#aaaaaa', end: '#0388a6'}
     };
 
     // init App when DOM ready
