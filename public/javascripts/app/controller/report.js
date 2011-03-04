@@ -21,7 +21,9 @@ App.Controllers.Report = Backbone.Controller.extend({
   },
 
   filter: function (screen_name, word) {
+    this.model.set({ screen_name: screen_name });
     this.model.filterByWord(decodeURIComponent(word));
+    this.showView.render();
   }
 
 });
