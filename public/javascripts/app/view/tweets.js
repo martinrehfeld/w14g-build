@@ -9,7 +9,7 @@ App.Views.Tweets = Backbone.View.extend({
   },
 
   render: function () {
-    $(this.el).html(JST.tweets_collection({ collection: this.collection }));
+    $(this.el).html(JST.tweets_collection({ model: this.options.parent, collection: this.collection }));
     return this;
   }
 

@@ -9,7 +9,7 @@ App.Views.WordCloud = Backbone.View.extend({
 
   render: function () {
     $(this.el)
-      .html(JST.tweets_wordcloud({ collection: this.model.topEntries(75) }))
+      .html(JST.tweets_wordcloud({ model: this.options.parent, collection: this.model.topEntries(75) }))
       .children('a').tagcloud();
 
     return this;

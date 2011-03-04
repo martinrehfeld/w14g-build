@@ -1,22 +1,27 @@
 App.Controllers.Report = Backbone.Controller.extend({
   routes: {
     "": "index",
-    "filter/by_word/:word": "filterByWord",
-    "reset_filter": "resetFilter"
+    ":screen_name": "show",
+    ":screen_name/:word": "filter"
   },
 
-  initialize: function(options) {
-    this.resource = options.resource;
-    this.view = new App.Views.Index({ model: this.resource });
+  initialize: function() {
+    this.model = new App.Models.Report();
+    this.showView = new App.Views.Show({ model: this.model });
   },
 
-  index: function () {},
-
-  filterByWord: function (word) {
-    this.resource.filterByWord(decodeURIComponent(word));
+  index: function () {
+    new App.Views.Index({ model: this.model }).render();
   },
 
-  resetFilter: function () {
-    this.resource.resetFilter();
+  show: function (screen_name) {
+    this.model.set({ screen_name: screen_name });
+    this.model.resetFilter();
+    this.showView.render();
+  },
+
+  filter: function (screen_name, word) {
+    this.model.filterByWord(decodeURIComponent(word));
   }
+
 });
