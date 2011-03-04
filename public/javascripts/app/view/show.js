@@ -9,8 +9,8 @@ App.Views.Show = Backbone.View.extend({
   },
 
   render: function() {
-    $('#app').html(this.wordCloudView.el);
-    $('#app').append(this.tweetsView.el);
+    $('#app').empty().append(this.wordCloudView.el, this.tweetsView.el);
     return this;
   }
+
 });

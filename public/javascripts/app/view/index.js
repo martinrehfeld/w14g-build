@@ -13,4 +13,5 @@ App.Views.Index = Backbone.View.extend({
     $('#app').html(this.el);
     return this;
   }
+
 });
