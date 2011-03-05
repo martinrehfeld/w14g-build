@@ -14,7 +14,7 @@ end
 ::Compass::configuration.asset_cache_buster = :none
 set :haml, { :attr_wrapper => '"', :format => :html5 }
 
-require File.join(Dir.getwd, 'helpers', 'jammit_helper')
+require File.join(Dir.getwd, 'lib', 'jammit_helper')
 helpers do
   include JammitHelper
 
