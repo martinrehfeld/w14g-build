@@ -5,10 +5,15 @@ require "jammit"
 Jammit.load_configuration(File.join(File.dirname(__FILE__), 'assets.yml'))
 Jammit.packager.precache_all(File.join('.', 'build', 'javascripts'), '.') if ENV['MM_ENV'] == 'build'
 
+module Middleman::Features
+  autoload :SkipJammitAssets, "lib/features/skip_jammit_assets"
+end
+
 configure :build do
   activate :minify_css
   activate :cache_buster
   activate :relative_assets
+  activate :skip_jammit_assets
 end
 
 ::Compass::configuration.asset_cache_buster = :none
