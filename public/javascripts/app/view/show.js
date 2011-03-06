@@ -4,7 +4,7 @@ App.Views.Show = Backbone.View.extend({
     var tweets = this.model.get('tweets');
     var wordCloud = this.model.get('wordCloud');
 
-    this.tweetsView = new App.Views.Tweets({ parent: this.model, collection: tweets });
+    this.tweetsView = new App.Views.Tweets({ parent: this.model, collection: tweets }).render();
     this.wordCloudView = new App.Views.WordCloud({ parent: this.model, model: wordCloud });
   },
 

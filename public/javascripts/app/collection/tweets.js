@@ -37,6 +37,13 @@ App.Collections.Tweets = Backbone.Collection.extend({
 
   tweetAdded: function (newTweet) {
     var wordMap = this.wordMap;
+    var currentFilter = this.currentFilter;
+    var matches_current_filter = false;
+
+    if (!this.isFiltered()) {
+      matches_current_filter = true;
+    }
+
     _.each(_.uniq(newTweet.analysedWords()), function (word) {
       if (word !== '') {
         if (wordMap[word]) {
@@ -44,8 +51,14 @@ App.Collections.Tweets = Backbone.Collection.extend({
         } else {
           wordMap[word] = [newTweet];
         }
+
+        if (!matches_current_filter && word === currentFilter) {
+          matches_current_filter = true;
+        }
       }
     });
+
+    newTweet.set({ visible: matches_current_filter });
   },
 
   isFiltered: function() {
@@ -54,7 +67,12 @@ App.Collections.Tweets = Backbone.Collection.extend({
 
   resetFilter: function (options) {
     options = options || {};
+
     this.currentFilter = null;
+    this.each(function (tweet) {
+      tweet.set({ visible: true });
+    });
+
     if (!options.silent) {
       this.trigger('filterchange');
     }
@@ -67,6 +85,15 @@ App.Collections.Tweets = Backbone.Collection.extend({
     }
     this.visibleModels = wordMap[word];
     this.currentFilter = word;
+
+    this.each(function (tweet) {
+      tweet.set({ visible: false });
+    });
+
+    _.each(this.visibleModels, function (tweet) {
+      tweet.set({ visible: true });
+    });
+
     this.trigger('filterchange');
   },
 
