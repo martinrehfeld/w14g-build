@@ -1,7 +1,9 @@
 require "bundler"
 Bundler.setup
 
-require "jammit"
+require 'coffee-script'
+require 'jammit'
+
 Jammit.load_configuration(File.join(File.dirname(__FILE__), 'assets.yml'))
 Jammit.packager.precache_all(File.join('.', 'build', 'javascripts'), '.') if ENV['MM_ENV'] == 'build'
 
@@ -33,4 +35,16 @@ end
 template_ext = Jammit.template_extension.to_sym
 get "/javascripts/site.#{template_ext}" do
   Jammit.packager.pack_templates(:site)
+end
+
+# compile CoffeeScript sources on the fly
+get '/javascripts/app/*' do |js_file|
+  content_type :js
+  target = File.join(File.dirname(__FILE__), 'public/javascripts/app', js_file)
+  if File.readable?(target)
+    File.read(target)
+  else
+    source = File.join(File.dirname(__FILE__), 'app', js_file.sub(/.js$/, '.coffee'))
+    CoffeeScript.compile File.read(source)
+  end
 end
