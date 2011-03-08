@@ -34,6 +34,7 @@ end
 # deliver application templates via Jammit
 template_ext = Jammit.template_extension.to_sym
 get "/javascripts/site.#{template_ext}" do
+  content_type :js
   Jammit.packager.pack_templates(:site)
 end
 
