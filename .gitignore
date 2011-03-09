@@ -4,3 +4,4 @@
 .bundle
 .sass-cache
 build
+public/javascripts/app
