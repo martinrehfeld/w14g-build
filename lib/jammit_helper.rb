@@ -43,7 +43,7 @@ module Jammit
         paths += additional_paths
       end
 
-      Jammit.warn("No assets match '#{glob}'") if paths.empty?
+      Jammit.warn("No assets match '#{glob}' (not even in ./app/**.coffee)") if paths.empty?
       paths
     end
     alias_method_chain :glob_files, :coffee_lookup

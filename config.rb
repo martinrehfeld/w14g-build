@@ -41,11 +41,6 @@ end
 # compile CoffeeScript sources on the fly
 get '/javascripts/app/*' do |js_file|
   content_type :js
-  target = File.join(File.dirname(__FILE__), 'public/javascripts/app', js_file)
-  if File.readable?(target)
-    File.read(target)
-  else
-    source = File.join(File.dirname(__FILE__), 'app', js_file.sub(/.js$/, '.coffee'))
-    CoffeeScript.compile File.read(source)
-  end
+  source = File.join(File.dirname(__FILE__), 'app', js_file.sub(/.js$/, '.coffee'))
+  CoffeeScript.compile File.read(source)
 end
