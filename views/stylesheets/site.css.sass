@@ -26,6 +26,10 @@ a
 #container
   +container
 
+  h1 a
+    +link-colors($font-color)
+    +hover-link
+
 .user-profile
   .profile-picture
     float: left
@@ -79,4 +83,5 @@ a
       .meta
         color: $tweet-meta-color
         a
+          +link-colors($tweet-meta-color)
           +hover-link
