@@ -7,6 +7,8 @@ $link-hover-color:   #009ce0
 $link-focus-color:   $link-color
 $link-active-color:  $link-color
 $link-visited-color: $link-color
+$tweet-meta-color:   lighten($font-color, 40%)
+$tweet-border-color: lighten($font-color, 70%)
 
 $blueprint-font-family:  'Century Gothic', 'Apple Gothic', 'Helvetica Neue', arial, sans-serif
 $blueprint-font-size:    13px
@@ -56,7 +58,25 @@ a
   button.active
     font-weight: bold
 
-.tweets-filter
-  margin-top: 0.75em
-  .filter-term
-    font-style: italic
+.tweets
+  .tweets-filter
+    margin-top: 0.75em
+    .filter-term
+      font-style: italic
+
+  .tweets-collection
+    +no-bullets
+    padding-left: 0
+    .tweet
+      padding-bottom: 0.5em
+      margin-bottom: 0.5em
+      border-bottom: 1px solid $tweet-border-color
+      &.conversation
+        background:
+          image: image_url('conversation.png')
+          repeat: no-repeat
+          position: top right
+      .meta
+        color: $tweet-meta-color
+        a
+          +hover-link
