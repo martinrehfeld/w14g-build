@@ -23,3 +23,7 @@
 
     assets.yml         Jammit config
     config.rb          Middleman / Sinatra config
+
+## Collaboration
+
+Pivotal Tracker project: https://www.pivotaltracker.com/projects/253927
