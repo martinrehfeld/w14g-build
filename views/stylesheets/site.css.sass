@@ -1,6 +1,8 @@
 @import "compass"
 @import "blueprint"
 
+$header-height: 60px
+
 $font-color:         #2a2a2a
 $link-color:         #0388a6
 $link-hover-color:   #009ce0
@@ -26,9 +28,30 @@ a
 #container
   +container
 
-  h1 a
-    +link-colors($font-color)
-    +hover-link
+  header
+    height: $header-height
+    h1 a
+      +link-colors($font-color)
+      +hover-link
+
+  footer
+    clear: both
+    margin: 1em 0
+    p
+      text-align: center
+      font-weight: bold
+
+  #app
+    #form, #report
+      +transition('-moz-transform, -webkit-transform, -o-transform, transform, -moz-transform-origin, -webkit-transform-origin, -o-transform-origin, transform-origin, opacity')
+      &.active
+        +scale(1.0, 0, 0)
+        +opaque
+        height: auto
+      &.inactive
+        +scale(0.0, 0, 0)
+        +transparent
+        height: 0
 
 .user-profile
   .profile-picture
