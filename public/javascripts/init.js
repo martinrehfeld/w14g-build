@@ -1,7 +1,6 @@
 ({
   init: function (global) {
-    google.load('visualization', '1', {packages:['corechart']});
-    google.setOnLoadCallback(this.start);
+    google.load('visualization', '1', {packages:['corechart'], callback: this.start});
 
     // HTML5 fix for older browsers
     'article aside footer header nav section time'.replace(/\w+/g, function (n) {
