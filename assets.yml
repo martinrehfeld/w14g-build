@@ -4,6 +4,7 @@ javascript_compressor: yui
 template_function: _.template
 javascripts:
   site:
+    - public/javascripts/clouds.js
     - public/javascripts/jquery.tagcloud.js
     - public/javascripts/json2.js
     - public/javascripts/underscore.js
