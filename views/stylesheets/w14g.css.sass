@@ -13,6 +13,7 @@ html,body,#container,#main
   :text-align center
   :font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
   :color #fff
+  :min-width 600px
 
   a
     :color #fff
@@ -123,30 +124,6 @@ html,body,#container,#main
   :height 38%
   :background url('../images/gras.jpg') #619518
 
-#profile
-  +transparent
-  +transition
-  :position absolute
-  :top 0
-  :left 50%
-  :margin-left -150px
-  :z-index 999
-  :background #FFF
-  :color #000
-  :font-size 80%
-  :text-align left
-  :width 300px
-  :padding 10px
-  :border-radius 10px
-  :-moz-border-radius 10px
-
-  &.loaded
-    +opaque
-
-  img
-    :float left
-    :margin-right 10px
-
 #spread
   :position absolute
   :top 100%
@@ -212,6 +189,10 @@ html,body,#container,#main
   :height 120px
   :z-index 800
 
+#country_underground_trans
+  :background url('../images/country_underground_trans.jpg') #8f5628
+  :height 86px
+
 #underground
   :background url('../images/underground.jpg') #8f5628
   :color #fff
@@ -219,16 +200,54 @@ html,body,#container,#main
   :text-shadow #000 1px 1px 3px
   :padding-bottom 100px
 
-#country_underground_trans
-  :background url('../images/country_underground_trans.jpg') #8f5628
-  :height 86px
+  h1
+    :color #262210
+    :text-shadow #998940 -1px -1px 1px
+    :font-size 36px
+    :font-weight bold
+    :margin-bottom 15px
+    :text-align left
+
+    a
+      :display inline
+      :font-size 14px
+      :padding 0 0 0 10px
+      :text-decoration none
+      :cursor pointer
+
+#profile
+  +transparent
+  +transition
+  :font-size 80%
+  :text-align left
+  :padding 10px
+  :border-radius 10px
+  :-moz-border-radius 10px
+
+  &.loaded
+    +opaque
+
+  img
+    :border 5px solid #fff
+    :border-bottom 15px solid #fff
+    :float left
+    :margin-right 30px
+    :margin-bottom 30px
+    :transform rotate(-5deg)
+    :-webkit-transform rotate(-5deg)
+    :-moz-transform rotate(-5deg)
+    :-moz-box-shadow 4px 4px 4px #262210
+    :-webkit-box-shadow 4px 4px 4px #262210
+    :box-shadow 4px 4px 4px #262210
+
+#report
+  :width 80%
+  :margin 0 auto
 
 .word-cloud
-  :width 80%
   :margin 30px auto
 
 .tweets-collection
-  :width 80%
   :margin 20px auto
 
   .tweet
@@ -238,6 +257,3 @@ html,body,#container,#main
     :margin-bottom 20px
     :border-radius 10px
     :-moz-border-radius 10px
-
-.tweet-graph
-  :display none
