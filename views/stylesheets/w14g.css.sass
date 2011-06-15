@@ -1,0 +1,188 @@
+@import "compass/reset"
+
+/*
+  * Delete outline on webkit input elements :focus
+  */
+input[type=text]:focus,
+input[type=password]:focus
+  :outline 0 none
+
+html,body,#container,#main
+  :height 100%
+  :text-align center
+
+#overground
+  :width 100%
+  :height 100%
+  :background #d7edfe
+  :background -moz-linear-gradient(top, #80c3f5, #d7edfe)
+  :background -webkit-gradient(linear, 0 0, 0 100%, from(#80c3f5), to(#d7edfe))
+
+#sky
+  :position relative
+  :height 62%
+  :width 100%
+  :overflow hidden
+
+  #gloom
+    :position absolute
+    :bottom 0
+    :left 50%
+    :width 800px
+    :margin-left -400px
+    :height 100%
+
+  #sky_country_trans
+    :position absolute
+    :bottom 0
+    :width 100%
+    :height 35px
+    :background url('../images/sky_country_trans.png')
+    :z-index 11
+
+  #form
+    :position absolute
+    :left 50%
+    :bottom 100px
+    :width 500px
+    :margin 200px 0 0 -250px
+    :z-index 999
+
+    @media screen
+      @media (max-height: 500px)
+        :bottom 50px
+
+    #w14g
+      :position absolute
+      :top -70px
+      :left 80px
+      :width 485px
+      :height 91px
+      :background url('../images/w14g.png')
+
+    label.screen_name_label
+      :font-size 40px
+      :color #fff
+      :font-weight bold
+      :text-shadow 3px 3px 5px #8fcaf7
+      :filter dropshadow(color=#8fcaf7, offx=3, offy=3)
+
+    .screen_name_input
+      :font-size 30px
+      :font-style italic
+      :color #BBB
+      :border 0
+      :width 400px
+      :padding 10px
+      :border-radius 10px
+      :box-shadow 3px 3px 5px #99c0e5
+      :-moz-box-shadow 3px 3px 5px #99c0e5
+      :-webkit-box-shadow 3px 3px 5px #99c0e5
+
+.cloud
+  :position absolute
+  :top 10%
+  :left -30%
+  :width 300px
+  :height 122px
+  :background url('../images/cloud.png')
+
+  :-webkit-animation-name cloud-fly
+  :-webkit-animation-iteration-count 1
+  :-webkit-animation-timing-function linear
+  :-webkit-animation-duration 120s
+
+  :-moz-animation-name cloud-fly
+  :-moz-animation-iteration-count 1
+  :-moz-animation-timing-function linear
+  :-moz-animation-duration 120s
+
+.cloud.two
+  :background url('../images/cloud2.png')
+  :width 250px
+  :height 116px
+
+.cloud.three
+  :background url('../images/cloud3.png')
+  :width 300
+  :height 126px
+
+#country
+  :position relative
+  :height 38%
+  :background url('../images/gras.jpg') #619518
+
+#spread
+  :position absolute
+  :top 100%
+  :background url('../images/spread.png')
+  :width 800px
+  :height 800px
+  :margin -400px auto 0 auto
+  :z-index 10
+
+  :-webkit-animation-name spin
+  :-webkit-animation-iteration-count infinite
+  :-webkit-animation-timing-function linear
+  :-webkit-animation-duration 120s
+
+  :-moz-animation-name spin
+  :-moz-animation-iteration-count infinite
+  :-moz-animation-timing-function linear
+  :-moz-animation-duration 120s
+
+#brain
+  :position absolute
+  :top 0
+  :left 50%
+  :background url('../images/brain.png') top left no-repeat
+  :width 200px
+  :height 179px
+  :margin-left -100px
+  :margin-top -80px
+  :z-index 900
+
+#html5
+  :position absolute
+  :bottom 30px
+  :right 10px
+  :z-index 800
+  :background url('../images/html5.png')
+  :width 100px
+  :height 100px
+  :z-index 900
+
+.cow
+  :position absolute
+  :top 10%
+  :left 25%
+  :height 104px
+  :width 145px
+  :background url('../images/cow.png')
+  :z-index 801
+
+.cow.two
+  :background url('../images/cow2.png')
+  :top 25%
+  :left 70%
+  :height 97px
+  :width 174px
+
+#truck
+  :position absolute
+  :top -20%
+  :left 5%
+  :background url('../images/truck.png')
+  :width 177px
+  :height 120px
+  :z-index 800
+
+#underground
+  :background url('../images/underground.jpg') #8f5628
+  :color #fff
+  :margin-top -1px
+  :height 500px
+
+#country_underground_trans
+  :background url('../images/country_underground_trans.jpg') #8f5628
+  :height 86px
