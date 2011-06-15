@@ -47,12 +47,17 @@ html,body,#container,#main
     :z-index 11
 
   #form
+    +transition
+    +transparent
     :position absolute
     :left 50%
     :bottom 100px
     :width 500px
     :margin 200px 0 0 -250px
     :z-index 999
+
+    &.loaded
+      +opaque
 
     @media screen
       @media (max-height: 500px)
