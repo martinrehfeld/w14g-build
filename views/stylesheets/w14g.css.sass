@@ -221,6 +221,8 @@ html,body,#container,#main
   :font-size 80%
   :text-align left
   :padding 10px
+  :width 400px
+  :height 220px
   :border-radius 10px
   :-moz-border-radius 10px
 
@@ -231,8 +233,7 @@ html,body,#container,#main
     :border 5px solid #fff
     :border-bottom 15px solid #fff
     :float left
-    :margin-right 30px
-    :margin-bottom 30px
+    :margin 0 30px 30px 20px
     :transform rotate(-5deg)
     :-webkit-transform rotate(-5deg)
     :-moz-transform rotate(-5deg)
@@ -240,20 +241,32 @@ html,body,#container,#main
     :-webkit-box-shadow 4px 4px 4px #262210
     :box-shadow 4px 4px 4px #262210
 
+  p.description
+    :font-style italic
+    :margin 5px 0
+
+  .profile-details
+    :margin-left 110px
+
 #report
   :width 80%
   :margin 0 auto
 
+.tweet-graph
+  :float right
+
 .word-cloud
   :margin 30px auto
+  :clear both
+  :margin-top 30px
 
 .tweets-collection
   :margin 20px auto
 
   .tweet
-    :background-color #000
-    :opacity 0.4
+    :background-color #262210
     :padding 10px
     :margin-bottom 20px
     :border-radius 10px
     :-moz-border-radius 10px
+    :text-align left
