@@ -62,7 +62,7 @@ html,body,#container,#main
 
     &.inactive
       :left 20%
-      :bottom 60px
+      :bottom 80px
 
       #w14g
         :top -60px
@@ -70,14 +70,18 @@ html,body,#container,#main
         :-webkit-transform scale(0.8)
 
       .screen_name_input
-        :width 260px
-        :padding 6px
+        :width 230px
+        :padding 6px 40px 6px 6px
         :font-size 22px
         :left 170px
 
       .screen_name_label
         :left 150px
         :font-size 22px
+
+      .screen_name_submit
+        :left 410px
+        :top 8px
 
     @media screen
       @media (max-height: 500px)
@@ -105,15 +109,19 @@ html,body,#container,#main
       :position absolute
       :left 120px
       :font-size 30px
-      :font-style italic
-      :color #BBB
+      :color #80c3f5
       :border 0
-      :width 340px
-      :padding 10px
+      :width 290px
+      :padding 10px 50px 10px 10px
       :border-radius 10px
       :box-shadow 3px 3px 5px #99c0e5
       :-moz-box-shadow 3px 3px 5px #99c0e5
       :-webkit-box-shadow 3px 3px 5px #99c0e5
+
+    .screen_name_submit
+      :position absolute
+      :left 430px
+      :top 15px
 
 .cloud
   :position absolute
