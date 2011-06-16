@@ -52,7 +52,7 @@ html,body,#container,#main
     +transparent
     :position absolute
     :left 50%
-    :bottom 140px
+    :bottom 160px
     :width 500px
     :margin 200px 0 0 -290px
     :z-index 999
@@ -62,12 +62,17 @@ html,body,#container,#main
 
     &.inactive
       :left 20%
-      :bottom 80px
+      :bottom 100px
 
       #w14g
         :top -60px
         :-moz-transform scale(0.8)
         :-webkit-transform scale(0.8)
+
+      #input_at
+        :top 10px
+        :left 145px
+        :font-size 24px
 
       .screen_name_input
         :width 230px
@@ -76,8 +81,9 @@ html,body,#container,#main
         :left 170px
 
       .screen_name_label
-        :left 150px
-        :font-size 22px
+        :left 180px
+        :top 45px
+        :font-size 12px
 
       .screen_name_submit
         :left 410px
@@ -95,11 +101,18 @@ html,body,#container,#main
       :height 91px
       :background url('../images/w14g.png')
 
+    #input_at
+      :position absolute
+      :top 5px
+      :left 75px
+      :font-size 44px
+      :font-weight bold
+
     .screen_name_label
       :position absolute
-      :left 80px
-      :top 10px
-      :font-size 40px
+      :left 130px
+      :top 60px
+      :font-size 14px
       :color #fff
       :font-weight bold
       :text-shadow 3px 3px 5px #8fcaf7
