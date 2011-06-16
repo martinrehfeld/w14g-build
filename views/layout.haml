@@ -6,11 +6,11 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
     = javascript_include_tag 'http://api.assets.io/b6/?dhiwjwhe0mjd4'
-    %script{:type => "text/javascript", :charset => "utf-8"}
+    :javascript
       assets.force();
       assets.on("www.w14g.com");
       assets.base("http://www.w14g.com");
-      assets.css("/stylesheets/animation.css /stylesheets/w14g.css", 20110616);
+      assets.css("/stylesheets/w14g.css /stylesheets/animation.css", 20110616);
 
     -# = stylesheet_link_tag 'animation.css'
     -# = stylesheet_link_tag 'w14g.css'
