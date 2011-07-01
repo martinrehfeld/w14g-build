@@ -26,10 +26,11 @@ end
 desc "Clean ./build directory"
 task :clean do
   sh 'rm -rf ./build/*'
+  sh 'rm -rf ./public/javascripts/app'
 end
 
 desc "Build the site"
 task :build => [:clean, :'js:compile'] do
   sh 'mm-build'
-  sh 'rm -rf ./public/javascripts/app'
+  puts 'PLEASE make sure to delete the generated JS for further development (after upload to S3): rake clean'
 end

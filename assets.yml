@@ -4,18 +4,5 @@ javascript_compressor: yui
 template_function: _.template
 javascripts:
   site:
-    - public/javascripts/clouds.js
-    - public/javascripts/jquery.tagcloud.js
-    - public/javascripts/json2.js
     - public/javascripts/underscore.js
-    - public/javascripts/backbone.js
     - app/templates/*.jst
-    - public/javascripts/app/app.js
-    # for some strange reason the views cannot reside in a dir named "views"
-    # as middleman seems to assing special meaning to that name, so we are
-    # generally moving to singular for model, collection, view, controller
-    - public/javascripts/app/model/*.js
-    - public/javascripts/app/collection/*.js
-    - public/javascripts/app/view/*.js
-    - public/javascripts/app/controller/*.js
-    - public/javascripts/init.js

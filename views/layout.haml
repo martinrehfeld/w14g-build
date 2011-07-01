@@ -6,15 +6,38 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
     = javascript_include_tag 'http://api.assets.io/b6/?dhiwjwhe0mjd4'
-    :javascript
-      assets.on("www.w14g.com");
-      assets.css("/stylesheets/w14g.css /stylesheets/animation.css", 201106162);
-
-    -# = stylesheet_link_tag 'animation.css'
-    -# = stylesheet_link_tag 'w14g.css'
-    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'
-    = javascript_include_tag 'https://www.google.com/jsapi'
     = javascripts :site
+    :javascript
+      assets.on('www.w14g.com');
+      assets.base('http://www.w14g.com');
+      assets.css([
+        '/stylesheets/w14g.css',
+        '/stylesheets/animation.css'
+      ], {version:201106162});
+      assets.js([
+        'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js',
+        'https://www.google.com/jsapi',
+        '/javascripts/clouds.js',
+        '/javascripts/jquery.tagcloud.js',
+        '/javascripts/json2.js',
+        '/javascripts/backbone.js',
+        '/javascripts/app/app.js',
+        '/javascripts/app/model/cloud.js',
+        '/javascripts/app/model/report.js',
+        '/javascripts/app/model/tweet.js',
+        '/javascripts/app/model/user.js',
+        '/javascripts/app/collection/tweets.js',
+        '/javascripts/app/view/index.js',
+        '/javascripts/app/view/show.js',
+        '/javascripts/app/view/tweet.js',
+        '/javascripts/app/view/tweets.js',
+        '/javascripts/app/view/tweets_filter.js',
+        '/javascripts/app/view/tweets_graph.js',
+        '/javascripts/app/view/user.js',
+        '/javascripts/app/view/word_cloud.js',
+        '/javascripts/app/controller/report.js',
+        '/javascripts/init.js'
+      ], {version:201107012});
 
     = yield_content :head
 
